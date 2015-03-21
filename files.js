@@ -1,6 +1,6 @@
 vdomFiles = {
   lib: [
-    'lib/virtual-dom.js'
+    'lib/virtual-dom-2.0.1.js'
   ],
   src: [
     'src/get_attribute.js',

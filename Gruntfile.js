@@ -72,13 +72,13 @@ module.exports = function (grunt) {
     karma: {
       options: {
         configFile: 'config/karma.js',
-        singleRun: true,
+        singleRun: false,
         exclude: [],
         frameworks: ['jasmine'],
         reporters: 'dots', // 'dots' || 'progress'
-        port: 8080,
+        port: 8000,
         colors: true,
-        autoWatch: false,
+        autoWatch: true,
         autoWatchInterval: 0,
         browsers: [ grunt.option('browser') || 'PhantomJS' ]
       },
@@ -120,6 +120,7 @@ module.exports = function (grunt) {
   grunt.registerTask('dist', 'Perform a clean build', ['clean', 'build']);
   grunt.registerTask('release', 'Tag and perform a release', ['prepare-release', 'dist', 'perform-release']);
   grunt.registerTask('dev', 'Run dev server and watch for changes', ['build', 'connect:server', 'karma:background', 'watch']);
+  grunt.registerTask('unit', ['karma:unit']);
 
   grunt.registerTask('prepare-release', function () {
     var bower = grunt.file.readJSON('bower.json'),
